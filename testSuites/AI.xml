@@ -8,6 +8,7 @@
     <test name="LoginTests" thread-count="2">
         <classes>
             <class name="tests.LoginTestBaseAI"/>
+            <class name="tests.ResetPassword"/>
         </classes>
     </test>
 

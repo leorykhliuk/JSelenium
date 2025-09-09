@@ -14,6 +14,8 @@ public class LoginPage extends ReusableMethods {
     public final By invalidEmailWarning;
     private final By invalidCredentialsError;
     private final By missingPassword;
+    private final By forgotPasswordBtn;
+    public final By saveNewPasswordBtn;
 
     public LoginPage(WebDriver driver){
         super(driver);
@@ -23,6 +25,8 @@ public class LoginPage extends ReusableMethods {
         invalidEmailWarning = By.cssSelector("div[class='form-group'] > div.invalid-feedback > div");
         invalidCredentialsError = By.cssSelector("div[role='alert']");
         this.missingPassword = By.cssSelector("div.form-group.mb-4 > div.invalid-feedback > div");
+        forgotPasswordBtn = By.cssSelector("div >  a.forgot-password-link");
+        saveNewPasswordBtn = By.xpath("//button[@type='submit'][text()='Save New Password']");
     };
 
     public void enterEmail(String email){
@@ -75,5 +79,9 @@ public class LoginPage extends ReusableMethods {
     public Boolean isMissingPasswordErrorDisplayed(){
         waitForElementToAppearsByLocator(missingPassword);
         return driver.findElement(missingPassword).isDisplayed();
+    }
+
+    public void clickForgetPassword() {
+        driver.findElement(forgotPasswordBtn).click();
     }
 }
